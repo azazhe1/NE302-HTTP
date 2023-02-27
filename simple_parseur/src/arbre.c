@@ -39,7 +39,7 @@ void Set_noeud(Noeud* noeud, char* etiquette_noeud, char* valeur_noeud, int tail
 
 }
 
-void Afficher_noeud(Noeud* noeud){
+void Afficher_noeud(Noeud* noeud){//Prend en argument le Noeud à afficher
     for(int i =0;i<noeud->niveau;i++){
         printf("\t");
     }
@@ -59,6 +59,24 @@ void Afficher_noeud(Noeud* noeud){
 
 }
 
+void Supprimer_arbre(Noeud* avant, Noeud* noeud, int level, int Is_pere){//Prend en argument soit le pere(Is_pere =1)/soit le grand_frere(Is_pere=0) , le noeud a supp, le level du noeud a supprimer
+
+    if(noeud->niveau == level){
+        if(Is_pere){
+            avant->fils = noeud->frere;
+        }else{
+            avant->frere=NULL;
+        }   
+    }
+    if(noeud->fils!=NULL){
+        Supprimer_arbre(noeud,noeud->fils,level,1);
+    }
+    if((noeud->frere!=NULL) && (noeud->niveau!=level)){
+        Supprimer_arbre(avant,noeud->frere,level,0);
+    }
+    free(noeud);
+}
+/*
 int main(){
     Noeud* head=Creer_Noeud(); 
     Set_noeud(head,"message","startVKiMupi-.4 LCTKq-.fin",strlen("startVKiMupi-.4 LCTKq-.fin"));
@@ -94,20 +112,20 @@ int main(){
     Set_noeud(frere_7,"__alpha","-.4 LCTKq-.fin",1);
 
     Afficher_noeud(head);
-
-
-
+    
+    Supprimer_arbre(fils,fils->frere,fils->niveau,0);
+    Supprimer_arbre(head,head->fils,head->niveau+1,1);
     free(head);
-    free(fils);
-    free(frere);
-    free(fils_1);
-    free(frere_1);
-    free(frere_2);
-    free(frere_3);
-    free(frere_4);
-    free(frere_5);
-    free(frere_6);
-    free(frere_7);
-
- 
-}
+    
+    //free(fils);
+    //free(frere);
+    //free(fils_1);
+    //free(frere_1);
+    //free(frere_2);
+    //free(frere_3);
+    //free(frere_4);
+    //free(frere_5);
+    //free(frere_6);
+    //free(frere_7);
+    
+}*/
