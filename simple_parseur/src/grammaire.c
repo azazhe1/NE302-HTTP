@@ -1,4 +1,5 @@
 #include "arbre.h"
+#include "fonctions.h"
 
 int Alpha(char *message, Noeud* noeud, int Is_pere){
     Noeud *alpha;
@@ -26,23 +27,22 @@ int Alpha(char *message, Noeud* noeud, int Is_pere){
 int Mot(char *message, Noeud *noeud){
     Noeud *mot=Creer_frere(noeud);
     Noeud *temp;
-    Noeud *avant;
     int resultat =0;
     Set_noeud(mot,"mot",message,0);
     if(Alpha(message,mot,1)){
+        free(mot);//Si ce n'est pas un mot, on efface tout de suite le noeud
+        noeud->frere=NULL;
         resultat =1;
     }else{
         temp=mot->fils;
         message++;
-        avant=temp;
         mot->taille=(mot->taille)+1;
         while(Alpha(message,temp,0)==0){
             message++;
             mot->taille=(mot->taille)+1;
-            avant=temp;
             temp=temp->frere;
         }
-        avant->frere=NULL;
+        Separateur(message, mot, 0); // On traite également le séparateur
     }
     return resultat;
 }
@@ -71,10 +71,19 @@ void Test_message(char *message){
     }else{
         message = message + Message->fils->taille;
         Mot(message,Message->fils);
+        message = message + Message->fils->frere->taille+1;
+        Ponct(message,Message->fils->frere->frere,0);
+        message = message + Message->fils->frere->taille;
+        Mot(message,Message->fils->frere->frere->frere);
         Afficher_noeud(Message);
     }
-    
-    Supprimer_arbre(Message->fils,Message->fils->frere,1,0);
+    //Problème de suppression si le noeud n'est pas existant
+    //Noter le fait qu'un passage par Mot crée désormais 2 frères (Alpha et Séparateur)
+    Supprimer_arbre(Message->fils->frere->frere->frere->frere,Message->fils->frere->frere->frere->frere->frere,1,0);
+    Supprimer_arbre(Message->fils->frere->frere->frere,Message->fils->frere->frere->frere->frere,1,0);
+    Supprimer_arbre(Message->fils->frere->frere,Message->fils->frere->frere->frere,1,0);
+    Supprimer_arbre(Message->fils->frere,Message->fils->frere->frere,1,0);
+    Supprimer_arbre(Message->fils,Message->fils->frere,1,1);
     Supprimer_arbre(Message,Message->fils,1,1);
     free(Message);
 
@@ -82,7 +91,8 @@ void Test_message(char *message){
 
 
 int main(){
-    char *message ="startVKiMupi-.4 LCTKq-.fin";
+    //char *message ="startVKiMupi-.4 LCTKq-.fin";
+    char *message ="startO ,DCvWahPeh	.q .UC-,Ka-:itN	:!fin"; //test3.txt
     Test_message(message);
 
 }
