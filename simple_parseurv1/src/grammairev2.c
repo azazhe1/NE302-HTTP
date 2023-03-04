@@ -17,7 +17,7 @@ int main(int argc, char **argv){
     Noeud *Message = Creer_Noeud();
     Set_noeud(Message,"message",message,strlen(message));
     if(Test_message(message,Message)){
-        printf("remaining  ##\n");
+        printf("remaining ##\n");
         Afficher_noeud(Message);
     }
     Supprimer_arbre(Message);

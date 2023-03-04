@@ -6,7 +6,7 @@ import pytest
 BASE_DIR = os.environ.get("BASE_DIR", ".")
 EMUL_HTTP = os.path.join(BASE_DIR, "main")
 EMUL_HTTP_PROF = os.path.join(BASE_DIR, "testsimplegrammar")
-ALL_FILES = glob.glob(os.path.join(BASE_DIR, "testFile/*.txt"))
+ALL_FILES = glob.glob(os.path.join(BASE_DIR, "../testFile/*.txt"))
 ALL_FILES.sort()
 
 
@@ -25,7 +25,7 @@ class TestHTTP:
                 resultat = 0
         
 
-        if (resultat ==0) and (out_put!=0):
+        if (resultat ==0)or(out_put!=0):
             pytest.fail("Error")
         os.system(f"rm my_resultat.txt")   
         os.system(f"rm prof_resultat.txt")      
