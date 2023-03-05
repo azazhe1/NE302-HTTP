@@ -1,6 +1,7 @@
 #include "grammairev2.h"
 
 
+
 int main(int argc, char **argv){
     FILE *fp;
     char message[1000];
@@ -127,10 +128,9 @@ int Test_message(char *message,Noeud *Message){
 int Test_fin(char *message,Noeud *noeud){
     int resultat=1;
     char *fin="fin";
-    char *FIN="FIN";
     Noeud *fils;
     for(int i=0;i<3;i++){
-        if((*(message+i)!=*(fin+i))&&(*(message+i)!=*(FIN+i))){
+        if( tolower(*(message+i)) != *(fin+i) ){
             resultat = 0;
         }
     }
@@ -146,10 +146,9 @@ int Test_fin(char *message,Noeud *noeud){
 int Test_debut(char *message,Noeud *noeud){
     int resultat=1;
     char *debut="start";
-    char *DEBUT="START";
     Noeud *fils;
     for(int i=0;i<5;i++){
-        if((*(message+i)!=*(debut+i))&&(*(message+i)!=*(DEBUT+i))){
+        if( tolower(*(message+i)) != *(debut+i) ){
             resultat = 0;
         }
     }
