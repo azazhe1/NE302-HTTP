@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "arbre.h"
+#include <ctype.h>
 
 int Test_message(char *message,Noeud *Message);
 int Test_debut(char *message,Noeud *noeud);
