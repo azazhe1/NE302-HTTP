@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Simple_Parseur:  Fichier source de include/arbre.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Simple_Parseur<span id="projectnumber">&#160;2.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">arbre.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="arbre_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="struct_noeud.html">   11</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_noeud.html">Noeud</a>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">char</span> *etiquette;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">char</span> *valeur;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> taille;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">int</span> niveau;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_noeud.html">Noeud</a>* fils;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_noeud.html">Noeud</a>* frere;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}<a class="code hl_struct" href="struct_noeud.html">Noeud</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_struct" href="struct_noeud.html">Noeud</a>* <a class="code hl_function" href="arbre_8h.html#a0529c0245ce9bea4725e6bec5fd3d1ba">Creer_Noeud</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><a class="code hl_struct" href="struct_noeud.html">Noeud</a> *<a class="code hl_function" href="arbre_8h.html#a3890d9a51ab5572e2e9347848f8a4165">Creer_fils</a>(<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* pere);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><a class="code hl_struct" href="struct_noeud.html">Noeud</a> *<a class="code hl_function" href="arbre_8h.html#abada93f43923f42cd303f6b924990507">Creer_frere</a>(<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* grand_frere);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="arbre_8h.html#abebcf56f0fee0167aec39ebcf9d7de99">Set_noeud</a>(<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* noeud, <span class="keywordtype">char</span>* etiquette_noeud, <span class="keywordtype">char</span>* valeur_noeud, <span class="keywordtype">int</span> taille_valeur);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> <a class="code hl_function" href="arbre_8h.html#affefd98fc8858535a18ea08753cc95f4">Afficher_noeud</a>(<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* noeud);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="arbre_8h.html#abe560c3cb5e7194cb47345ba35948196">Supprimer_arbre</a>(<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* noeud);</div>
+<div class="ttc" id="aarbre_8h_html_a0529c0245ce9bea4725e6bec5fd3d1ba"><div class="ttname"><a href="arbre_8h.html#a0529c0245ce9bea4725e6bec5fd3d1ba">Creer_Noeud</a></div><div class="ttdeci">Noeud * Creer_Noeud()</div><div class="ttdoc">Créer un noeud.</div><div class="ttdef"><b>Definition:</b> arbre.c:16</div></div>
+<div class="ttc" id="aarbre_8h_html_a3890d9a51ab5572e2e9347848f8a4165"><div class="ttname"><a href="arbre_8h.html#a3890d9a51ab5572e2e9347848f8a4165">Creer_fils</a></div><div class="ttdeci">Noeud * Creer_fils(Noeud *pere)</div><div class="ttdoc">créer un fils à un noeud donné</div><div class="ttdef"><b>Definition:</b> arbre.c:36</div></div>
+<div class="ttc" id="aarbre_8h_html_abada93f43923f42cd303f6b924990507"><div class="ttname"><a href="arbre_8h.html#abada93f43923f42cd303f6b924990507">Creer_frere</a></div><div class="ttdeci">Noeud * Creer_frere(Noeud *grand_frere)</div><div class="ttdoc">créer un frère à un noeud donné</div><div class="ttdef"><b>Definition:</b> arbre.c:51</div></div>
+<div class="ttc" id="aarbre_8h_html_abe560c3cb5e7194cb47345ba35948196"><div class="ttname"><a href="arbre_8h.html#abe560c3cb5e7194cb47345ba35948196">Supprimer_arbre</a></div><div class="ttdeci">void Supprimer_arbre(Noeud *noeud)</div><div class="ttdoc">Supprime récursivement un tout un arbre à partir d'un noeud.</div><div class="ttdef"><b>Definition:</b> arbre.c:103</div></div>
+<div class="ttc" id="aarbre_8h_html_abebcf56f0fee0167aec39ebcf9d7de99"><div class="ttname"><a href="arbre_8h.html#abebcf56f0fee0167aec39ebcf9d7de99">Set_noeud</a></div><div class="ttdeci">void Set_noeud(Noeud *noeud, char *etiquette_noeud, char *valeur_noeud, int taille_valeur)</div><div class="ttdoc">Moddifie les valeurs d'un noeud, lui associe son etiquette, le pointeur vers le string associé et la ...</div><div class="ttdef"><b>Definition:</b> arbre.c:67</div></div>
+<div class="ttc" id="aarbre_8h_html_affefd98fc8858535a18ea08753cc95f4"><div class="ttname"><a href="arbre_8h.html#affefd98fc8858535a18ea08753cc95f4">Afficher_noeud</a></div><div class="ttdeci">void Afficher_noeud(Noeud *noeud)</div><div class="ttdoc">Affiche récursivement tout un arbre à partir d'un noeud.</div><div class="ttdef"><b>Definition:</b> arbre.c:79</div></div>
+<div class="ttc" id="astruct_noeud_html"><div class="ttname"><a href="struct_noeud.html">Noeud</a></div><div class="ttdef"><b>Definition:</b> arbre.h:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

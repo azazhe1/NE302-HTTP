@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Simple_Parseur:  Fichier source de include/grammairev2.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Simple_Parseur<span id="projectnumber">&#160;2.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">grammairev2.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="arbre_8h.html">arbre.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a7bbc589d5e4b2fbd358a1f12597e2c78">Test_message</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *Message);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#afb23bd0aefb20da51f75e47ec8302e8e">Test_debut</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a768830cbd93f8a805808bf576f3e5b26">Test_mot</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a885bc0287116163799562adc15b428a7">Test_Alpha</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#ada1f25f03ea02ba922c3339c2bc9d6af">Test_ponct</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a>* noeud);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a0124e0ad2390fce3f06b615d50584f85">Test_separateur</a>(<span class="keywordtype">char</span> *message, <a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#abf65c162ce8023231d5da447bf53c9c4">Test_htab</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> * noeud);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#ae658b324131ae758c61e7754c5d76850">Test_sp</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> * noeud);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a636b7ba222515afe1ffbaeaacb3b3ced">Test_nombre</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#adc6d6e06a166ce4006bc4479e47bceb3">Test_digit</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> * noeud);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#acfbe3f87a4a51b770d8f419c8d82e996">Test_fin</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">int</span> <a class="code hl_function" href="grammairev2_8c.html#a203e3545eb2f29608b27cef105100774">Test_lf</a>(<span class="keywordtype">char</span> *message,<a class="code hl_struct" href="struct_noeud.html">Noeud</a> *noeud);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//int Alpha(char *message, Noeud* noeud, int Is_pere);</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//int Mot(char *message, Noeud *noeud);</span></div>
+<div class="ttc" id="aarbre_8h_html"><div class="ttname"><a href="arbre_8h.html">arbre.h</a></div><div class="ttdoc">Définition de notre structure qui va implémenter notre arbre.</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a0124e0ad2390fce3f06b615d50584f85"><div class="ttname"><a href="grammairev2_8c.html#a0124e0ad2390fce3f06b615d50584f85">Test_separateur</a></div><div class="ttdeci">int Test_separateur(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un separateur est conforme à: SP / HTAB / &quot;-&quot; / &quot;_&quot;.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:293</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a203e3545eb2f29608b27cef105100774"><div class="ttname"><a href="grammairev2_8c.html#a203e3545eb2f29608b27cef105100774">Test_lf</a></div><div class="ttdeci">int Test_lf(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un lf est conforme à: x0A.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:380</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a636b7ba222515afe1ffbaeaacb3b3ced"><div class="ttname"><a href="grammairev2_8c.html#a636b7ba222515afe1ffbaeaacb3b3ced">Test_nombre</a></div><div class="ttdeci">int Test_nombre(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un nombre est conforme à: 1*DIGIT.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:224</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a768830cbd93f8a805808bf576f3e5b26"><div class="ttname"><a href="grammairev2_8c.html#a768830cbd93f8a805808bf576f3e5b26">Test_mot</a></div><div class="ttdeci">int Test_mot(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un mot est conforme à: 1*ALPHA separateur.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:187</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a7bbc589d5e4b2fbd358a1f12597e2c78"><div class="ttname"><a href="grammairev2_8c.html#a7bbc589d5e4b2fbd358a1f12597e2c78">Test_message</a></div><div class="ttdeci">int Test_message(char *message, Noeud *Message)</div><div class="ttdoc">Test si un message est conforme à: debut 2*( mot ponct /nombre separateur ) [ponct] fin LF.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:43</div></div>
+<div class="ttc" id="agrammairev2_8c_html_a885bc0287116163799562adc15b428a7"><div class="ttname"><a href="grammairev2_8c.html#a885bc0287116163799562adc15b428a7">Test_Alpha</a></div><div class="ttdeci">int Test_Alpha(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un alphe est conforme à: x41-5A / x61-7A ; A-Z / a-z.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:275</div></div>
+<div class="ttc" id="agrammairev2_8c_html_abf65c162ce8023231d5da447bf53c9c4"><div class="ttname"><a href="grammairev2_8c.html#abf65c162ce8023231d5da447bf53c9c4">Test_htab</a></div><div class="ttdeci">int Test_htab(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un htab est conforme à: x09.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:340</div></div>
+<div class="ttc" id="agrammairev2_8c_html_acfbe3f87a4a51b770d8f419c8d82e996"><div class="ttname"><a href="grammairev2_8c.html#acfbe3f87a4a51b770d8f419c8d82e996">Test_fin</a></div><div class="ttdeci">int Test_fin(char *message, Noeud *noeud)</div><div class="ttdoc">Test si une fin est conforme à: fin = &quot;fin&quot;.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:136</div></div>
+<div class="ttc" id="agrammairev2_8c_html_ada1f25f03ea02ba922c3339c2bc9d6af"><div class="ttname"><a href="grammairev2_8c.html#ada1f25f03ea02ba922c3339c2bc9d6af">Test_ponct</a></div><div class="ttdeci">int Test_ponct(char *message, Noeud *noeud)</div><div class="ttdoc">Test si une ponct est conforme à: &quot;,&quot; / &quot;.&quot; / &quot;!&quot; / &quot;?&quot; / &quot;:&quot;.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:358</div></div>
+<div class="ttc" id="agrammairev2_8c_html_adc6d6e06a166ce4006bc4479e47bceb3"><div class="ttname"><a href="grammairev2_8c.html#adc6d6e06a166ce4006bc4479e47bceb3">Test_digit</a></div><div class="ttdeci">int Test_digit(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un digit est conforme à: x30-39.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:257</div></div>
+<div class="ttc" id="agrammairev2_8c_html_ae658b324131ae758c61e7754c5d76850"><div class="ttname"><a href="grammairev2_8c.html#ae658b324131ae758c61e7754c5d76850">Test_sp</a></div><div class="ttdeci">int Test_sp(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un sp est conforme à: x20.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:322</div></div>
+<div class="ttc" id="agrammairev2_8c_html_afb23bd0aefb20da51f75e47ec8302e8e"><div class="ttname"><a href="grammairev2_8c.html#afb23bd0aefb20da51f75e47ec8302e8e">Test_debut</a></div><div class="ttdeci">int Test_debut(char *message, Noeud *noeud)</div><div class="ttdoc">Test si un debut est conforme à: fin = &quot;debut&quot;.</div><div class="ttdef"><b>Definition:</b> grammairev2.c:163</div></div>
+<div class="ttc" id="astruct_noeud_html"><div class="ttname"><a href="struct_noeud.html">Noeud</a></div><div class="ttdef"><b>Definition:</b> arbre.h:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

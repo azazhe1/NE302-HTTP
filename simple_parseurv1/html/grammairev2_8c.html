@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Simple_Parseur: Référence du fichier src/grammairev2.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Simple_Parseur<span id="projectnumber">&#160;2.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier grammairev2.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Test si un message est conforme à test.abnf.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;grammairev2.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top"><a id="a3c04138a5bfe5d72780bb7e82a18e627" name="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char **argv)</td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bbc589d5e4b2fbd358a1f12597e2c78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a7bbc589d5e4b2fbd358a1f12597e2c78">Test_message</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *Message)</td></tr>
+<tr class="memdesc:a7bbc589d5e4b2fbd358a1f12597e2c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un message est conforme à: debut 2*( mot ponct /nombre separateur ) [ponct] fin LF.  <a href="grammairev2_8c.html#a7bbc589d5e4b2fbd358a1f12597e2c78">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7bbc589d5e4b2fbd358a1f12597e2c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbe3f87a4a51b770d8f419c8d82e996"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#acfbe3f87a4a51b770d8f419c8d82e996">Test_fin</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:acfbe3f87a4a51b770d8f419c8d82e996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si une fin est conforme à: fin = "fin".  <a href="grammairev2_8c.html#acfbe3f87a4a51b770d8f419c8d82e996">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acfbe3f87a4a51b770d8f419c8d82e996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb23bd0aefb20da51f75e47ec8302e8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#afb23bd0aefb20da51f75e47ec8302e8e">Test_debut</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:afb23bd0aefb20da51f75e47ec8302e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un debut est conforme à: fin = "debut".  <a href="grammairev2_8c.html#afb23bd0aefb20da51f75e47ec8302e8e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afb23bd0aefb20da51f75e47ec8302e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768830cbd93f8a805808bf576f3e5b26"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a768830cbd93f8a805808bf576f3e5b26">Test_mot</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:a768830cbd93f8a805808bf576f3e5b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un mot est conforme à: 1*ALPHA separateur.  <a href="grammairev2_8c.html#a768830cbd93f8a805808bf576f3e5b26">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a768830cbd93f8a805808bf576f3e5b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636b7ba222515afe1ffbaeaacb3b3ced"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a636b7ba222515afe1ffbaeaacb3b3ced">Test_nombre</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:a636b7ba222515afe1ffbaeaacb3b3ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un nombre est conforme à: 1*DIGIT.  <a href="grammairev2_8c.html#a636b7ba222515afe1ffbaeaacb3b3ced">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a636b7ba222515afe1ffbaeaacb3b3ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6d6e06a166ce4006bc4479e47bceb3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#adc6d6e06a166ce4006bc4479e47bceb3">Test_digit</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:adc6d6e06a166ce4006bc4479e47bceb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un digit est conforme à: x30-39.  <a href="grammairev2_8c.html#adc6d6e06a166ce4006bc4479e47bceb3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adc6d6e06a166ce4006bc4479e47bceb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885bc0287116163799562adc15b428a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a885bc0287116163799562adc15b428a7">Test_Alpha</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:a885bc0287116163799562adc15b428a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un alphe est conforme à: x41-5A / x61-7A ; A-Z / a-z.  <a href="grammairev2_8c.html#a885bc0287116163799562adc15b428a7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a885bc0287116163799562adc15b428a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0124e0ad2390fce3f06b615d50584f85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a0124e0ad2390fce3f06b615d50584f85">Test_separateur</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:a0124e0ad2390fce3f06b615d50584f85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un separateur est conforme à: SP / HTAB / "-" / "_".  <a href="grammairev2_8c.html#a0124e0ad2390fce3f06b615d50584f85">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0124e0ad2390fce3f06b615d50584f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae658b324131ae758c61e7754c5d76850"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#ae658b324131ae758c61e7754c5d76850">Test_sp</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:ae658b324131ae758c61e7754c5d76850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un sp est conforme à: x20.  <a href="grammairev2_8c.html#ae658b324131ae758c61e7754c5d76850">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae658b324131ae758c61e7754c5d76850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf65c162ce8023231d5da447bf53c9c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#abf65c162ce8023231d5da447bf53c9c4">Test_htab</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:abf65c162ce8023231d5da447bf53c9c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un htab est conforme à: x09.  <a href="grammairev2_8c.html#abf65c162ce8023231d5da447bf53c9c4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abf65c162ce8023231d5da447bf53c9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1f25f03ea02ba922c3339c2bc9d6af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#ada1f25f03ea02ba922c3339c2bc9d6af">Test_ponct</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:ada1f25f03ea02ba922c3339c2bc9d6af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si une ponct est conforme à: "," / "." / "!" / "?" / ":".  <a href="grammairev2_8c.html#ada1f25f03ea02ba922c3339c2bc9d6af">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ada1f25f03ea02ba922c3339c2bc9d6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203e3545eb2f29608b27cef105100774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grammairev2_8c.html#a203e3545eb2f29608b27cef105100774">Test_lf</a> (char *message, <a class="el" href="struct_noeud.html">Noeud</a> *noeud)</td></tr>
+<tr class="memdesc:a203e3545eb2f29608b27cef105100774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test si un lf est conforme à: x0A.  <a href="grammairev2_8c.html#a203e3545eb2f29608b27cef105100774">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a203e3545eb2f29608b27cef105100774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Test si un message est conforme à test.abnf. </p>
+<dl class="section author"><dt>Auteur</dt><dd>VINCENT MICHEL RENIER </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a885bc0287116163799562adc15b428a7" name="a885bc0287116163799562adc15b428a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a885bc0287116163799562adc15b428a7">&#9670;&nbsp;</a></span>Test_Alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_Alpha </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un alphe est conforme à: x41-5A / x61-7A ; A-Z / a-z. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>l'alpha à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette alpha</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si alpha est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="afb23bd0aefb20da51f75e47ec8302e8e" name="afb23bd0aefb20da51f75e47ec8302e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb23bd0aefb20da51f75e47ec8302e8e">&#9670;&nbsp;</a></span>Test_debut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_debut </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un debut est conforme à: fin = "debut". </p>
+<p >"debut" n'est pas sensible à la casse</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le debut à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette debut</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> retourne 1 si début est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="adc6d6e06a166ce4006bc4479e47bceb3" name="adc6d6e06a166ce4006bc4479e47bceb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc6d6e06a166ce4006bc4479e47bceb3">&#9670;&nbsp;</a></span>Test_digit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_digit </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un digit est conforme à: x30-39. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le digit à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette digit</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si digit est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="acfbe3f87a4a51b770d8f419c8d82e996" name="acfbe3f87a4a51b770d8f419c8d82e996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfbe3f87a4a51b770d8f419c8d82e996">&#9670;&nbsp;</a></span>Test_fin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_fin </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si une fin est conforme à: fin = "fin". </p>
+<p >"fin" n'est pas sensible à la casse</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>la fin à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette fin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> retourne 1 si fin est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="abf65c162ce8023231d5da447bf53c9c4" name="abf65c162ce8023231d5da447bf53c9c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf65c162ce8023231d5da447bf53c9c4">&#9670;&nbsp;</a></span>Test_htab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_htab </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un htab est conforme à: x09. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le htab à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette htab</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si htab est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a203e3545eb2f29608b27cef105100774" name="a203e3545eb2f29608b27cef105100774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203e3545eb2f29608b27cef105100774">&#9670;&nbsp;</a></span>Test_lf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_lf </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un lf est conforme à: x0A. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le lf à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette lf</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si lf est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a7bbc589d5e4b2fbd358a1f12597e2c78" name="a7bbc589d5e4b2fbd358a1f12597e2c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbc589d5e4b2fbd358a1f12597e2c78">&#9670;&nbsp;</a></span>Test_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_message </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>Message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un message est conforme à: debut 2*( mot ponct /nombre separateur ) [ponct] fin LF. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le message à vérifier </td></tr>
+    <tr><td class="paramname">Message</td><td>le premmier noeud de notre arbre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> retourne 1 si le message est correct, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a768830cbd93f8a805808bf576f3e5b26" name="a768830cbd93f8a805808bf576f3e5b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a768830cbd93f8a805808bf576f3e5b26">&#9670;&nbsp;</a></span>Test_mot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_mot </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un mot est conforme à: 1*ALPHA separateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le mot à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette mot</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> retourne 1 si mot est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a636b7ba222515afe1ffbaeaacb3b3ced" name="a636b7ba222515afe1ffbaeaacb3b3ced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636b7ba222515afe1ffbaeaacb3b3ced">&#9670;&nbsp;</a></span>Test_nombre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_nombre </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un nombre est conforme à: 1*DIGIT. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le nombre à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette nombre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si nombre est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="ada1f25f03ea02ba922c3339c2bc9d6af" name="ada1f25f03ea02ba922c3339c2bc9d6af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1f25f03ea02ba922c3339c2bc9d6af">&#9670;&nbsp;</a></span>Test_ponct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_ponct </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si une ponct est conforme à: "," / "." / "!" / "?" / ":". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>la ponct à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette ponct</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si ponct est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a0124e0ad2390fce3f06b615d50584f85" name="a0124e0ad2390fce3f06b615d50584f85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0124e0ad2390fce3f06b615d50584f85">&#9670;&nbsp;</a></span>Test_separateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_separateur </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un separateur est conforme à: SP / HTAB / "-" / "_". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le separateur à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette separateur</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si separateur est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="ae658b324131ae758c61e7754c5d76850" name="ae658b324131ae758c61e7754c5d76850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae658b324131ae758c61e7754c5d76850">&#9670;&nbsp;</a></span>Test_sp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Test_sp </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_noeud.html">Noeud</a> *&#160;</td>
+          <td class="paramname"><em>noeud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test si un sp est conforme à: x20. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>le sp à vérifier </td></tr>
+    <tr><td class="paramname">noeud</td><td>le noeud qui possèdera l'étiquette sp</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><b>int</b> return 1 si sp est correcte, 0 sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>
