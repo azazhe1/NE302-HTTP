@@ -1,6 +1,11 @@
 #include "grammairev2.h"
 
-
+/**
+ * @file grammairev2.c
+ * @brief Test si un message est conforme à test.abnf
+ * @author VINCENT MICHEL RENIER 
+ * @version 2.0
+ */
 
 int main(int argc, char **argv){
     FILE *fp;
@@ -26,16 +31,23 @@ int main(int argc, char **argv){
 }
 
 
-//message = debut 2*( mot ponct /nombre separateur ) [ponct] fin LF
+
+/**
+ * @brief Test si un message est conforme à: debut 2*( mot ponct /nombre separateur ) [ponct] fin LF
+ * 
+ * @param message: le message à vérifier
+ * @param Message: le premmier noeud de notre arbre
+ * 
+ * @return \b int retourne 1 si le message est correct, 0 sinon
+ */
 int Test_message(char *message,Noeud *Message){
     Noeud * fils;
     Noeud * frere_1;
     Noeud * frere_2;
     Noeud * frere_3;
-    Noeud * frere_4;
     int taille =0;
     int fin=1;
-    //debut
+
     fils=Creer_fils(Message);
     if(Test_debut(message,fils)){
         message = message +5;
@@ -48,7 +60,7 @@ int Test_message(char *message,Noeud *Message){
     frere_1 = Creer_frere(fils);
     frere_2=frere_1;
     while(fin){
-        if(Test_mot(message,frere_2)){//mot
+        if(Test_mot(message,frere_2)){
             message = message + frere_2->taille;
             frere_1=frere_2;
             frere_2=Creer_frere(frere_2);
@@ -63,7 +75,8 @@ int Test_message(char *message,Noeud *Message){
             frere_1=frere_2;
             frere_2=Creer_frere(frere_2);
             taille++;
-        }else if(Test_nombre(message,frere_2)){//nombre
+        }
+        else if(Test_nombre(message,frere_2)){
             message = message +frere_2->taille;
             frere_1=frere_2;
             frere_2=Creer_frere(frere_2);
@@ -92,39 +105,34 @@ int Test_message(char *message,Noeud *Message){
     frere_2=Creer_frere(frere_1);
     if(Test_ponct(message,frere_2)){
         message++;
-        frere_3=Creer_frere(frere_2);
-        if(Test_fin(message,frere_3)){
-            message = message +3;
-        }else{
-            Supprimer_arbre(fils);
-            Message->fils=NULL;
-            return 0;
-        }
-        frere_4=Creer_frere(frere_3);
-        if(Test_lf(message,frere_4)==0){
-            Supprimer_arbre(fils);
-            Message->fils=NULL;
-            return 0;
-        }
-    }else{
-        
-        if(Test_fin(message,frere_2)){
-            message = message +3;
-        }else{
-            Supprimer_arbre(fils);
-            Message->fils=NULL;
-            return 0;
-        }
-        frere_3=Creer_frere(frere_2);
-        if(Test_lf(message,frere_3)==0){
-            Supprimer_arbre(fils);
-            Message->fils=NULL;
-            return 0;
-        }
+        frere_2=Creer_frere(frere_2);
     }
+    if(Test_fin(message,frere_2)){
+        message = message +3;
+    }else{
+        Supprimer_arbre(fils);
+        Message->fils=NULL;
+        return 0;
+    }
+    frere_3=Creer_frere(frere_2);
+    if(Test_lf(message,frere_3)==0){
+        Supprimer_arbre(fils);
+        Message->fils=NULL;
+        return 0;
+    }
+  
     return 1;   
 }
 
+/**
+ * @brief Test si une fin est conforme à: fin = "fin"
+ * @details "fin" n'est pas sensible à la casse
+ * 
+ * @param message: la fin à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette fin
+ * 
+ * @return \b int retourne 1 si fin est correcte, 0 sinon 
+ */
 int Test_fin(char *message,Noeud *noeud){
     int resultat=1;
     char *fin="fin";
@@ -143,6 +151,15 @@ int Test_fin(char *message,Noeud *noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si un debut est conforme à: fin = "debut"
+ * @details "debut" n'est pas sensible à la casse
+ * 
+ * @param message: le debut à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette debut
+ * 
+ * @return \b int retourne 1 si début est correcte, 0 sinon 
+ */
 int Test_debut(char *message,Noeud *noeud){
     int resultat=1;
     char *debut="start";
@@ -159,7 +176,14 @@ int Test_debut(char *message,Noeud *noeud){
     Set_noeud(noeud,"debut",message,5);
     return resultat;
 }
-
+/**
+ * @brief Test si un mot est conforme à: 1*ALPHA separateur
+ * 
+ * @param message: le mot à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette mot
+ * 
+ * @return \b int retourne 1 si mot est correcte, 0 sinon 
+ */
 int Test_mot(char *message,Noeud *noeud){
     Noeud *fils = Creer_fils(noeud);
     Noeud *frere = fils;
@@ -189,6 +213,14 @@ int Test_mot(char *message,Noeud *noeud){
     return 1;
 }
 
+/**
+ * @brief Test si un nombre est conforme à: 1*DIGIT
+ * 
+ * @param message: le nombre à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette nombre
+ * 
+ * @return \b int return 1 si nombre est correcte, 0 sinon 
+ */
 int Test_nombre(char *message,Noeud *noeud){
     Noeud *fils = Creer_fils(noeud);
     Noeud *frere = fils;
@@ -214,6 +246,14 @@ int Test_nombre(char *message,Noeud *noeud){
     return 1;
 }
 
+/**
+ * @brief Test si un digit est conforme à: %x30-39
+ * 
+ * @param message: le digit à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette digit
+ * 
+ * @return \b int return 1 si digit est correcte, 0 sinon 
+ */
 int Test_digit(char *message,Noeud * noeud){
     int resultat = 0;
     
@@ -224,6 +264,14 @@ int Test_digit(char *message,Noeud * noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si un alphe est conforme à: %x41-5A / %x61-7A   ; A-Z / a-z
+ * 
+ * @param message: l'alpha à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette alpha
+ * 
+ * @return \b int return 1 si alpha est correcte, 0 sinon 
+ */
 int Test_Alpha(char *message,Noeud *noeud){
     int resultat=0;
     
@@ -234,6 +282,14 @@ int Test_Alpha(char *message,Noeud *noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si un separateur est conforme à: SP / HTAB / "-" / "_"
+ * 
+ * @param message: le separateur à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette separateur
+ * 
+ * @return \b  int return 1 si separateur est correcte, 0 sinon 
+ */
 int Test_separateur(char *message, Noeud *noeud){
     int resultat = 0;
     Noeud *fils=Creer_fils(noeud);
@@ -255,6 +311,14 @@ int Test_separateur(char *message, Noeud *noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si un sp est conforme à: %x20
+ * 
+ * @param message: le sp à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette sp
+ * 
+ * @return \b int return 1 si sp est correcte, 0 sinon 
+ */
 int Test_sp(char *message,Noeud * noeud){
     int resultat=0;
     
@@ -265,6 +329,14 @@ int Test_sp(char *message,Noeud * noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si un htab est conforme à: %x09
+ * 
+ * @param message: le htab à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette htab
+ * 
+ * @return \b int return 1 si htab est correcte, 0 sinon 
+ */
 int Test_htab(char *message,Noeud * noeud){
     int resultat=0;
     
@@ -275,6 +347,14 @@ int Test_htab(char *message,Noeud * noeud){
     return resultat;
 }
 
+/**
+ * @brief Test si une ponct est conforme à: "," / "." / "!" / "?" / ":"
+ * 
+ * @param message: la ponct à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette ponct
+ * 
+ * @return \b int return 1 si ponct est correcte, 0 sinon 
+ */
 int Test_ponct(char *message,Noeud* noeud){
     int resultat =0;
     Noeud * fils;
@@ -289,6 +369,14 @@ int Test_ponct(char *message,Noeud* noeud){
     return resultat;
 } 
 
+/**
+ * @brief Test si un lf est conforme à: %x0A
+ * 
+ * @param message: le lf à vérifier 
+ * @param noeud: le noeud qui possèdera l'étiquette lf
+ * 
+ * @return \b int return 1 si lf est correcte, 0 sinon 
+ */
 int Test_lf(char *message,Noeud *noeud){
     int resultat=0;
     

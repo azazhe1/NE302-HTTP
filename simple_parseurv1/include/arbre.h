@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @file arbre.h 
+ * @brief Définition de notre structure qui va implémenter notre arbre
+ * @author VINCENT MICHEL RENIER 
+ * @version 1.0
+ */
 typedef struct Noeud{
     char *etiquette;
     char *valeur;
