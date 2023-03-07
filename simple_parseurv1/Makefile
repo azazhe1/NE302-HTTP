@@ -1,10 +1,10 @@
-NAME := VINCENT_SIMPLE_PARSEUR
+NAME := VINCENT_MICHEL_RENIER_SIMPLE_PARSEUR
 INC_DIR := include
 MAIN := simple_parseur
 SRC_C := $(wildcard src/*.c)
 
 $(MAIN): $(SRC_C)
-	gcc $^ -o $@ -Og -g -Wall -Wextra -I$(INC_DIR) -lm
+	gcc $^ -o $@ -Og -g -Wall -Wextra -I$(INC_DIR)
 
 tests: $(MAIN)
 	@ python3 execute.py -v

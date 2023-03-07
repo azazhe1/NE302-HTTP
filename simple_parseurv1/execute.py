@@ -6,7 +6,7 @@ import pytest
 BASE_DIR = os.environ.get("BASE_DIR", ".")
 EMUL_HTTP = os.path.join(BASE_DIR, "simple_parseur")
 EMUL_HTTP_PROF = os.path.join(BASE_DIR, "parseur_prof")
-ALL_FILES = glob.glob(os.path.join(BASE_DIR, "/home/azazhel/Documents/3A_S2/NE302/simple_parseurv1/testFile/*.txt"))
+ALL_FILES = glob.glob(os.path.join(BASE_DIR, "testFile/*.txt"))
 ALL_FILES.sort()
 
 

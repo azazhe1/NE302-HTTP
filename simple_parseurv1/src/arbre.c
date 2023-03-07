@@ -3,15 +3,15 @@
 /**
  * @file arbre.c
  * @brief Gère la création et la suppression d'arbre, \n
- * la création de fils et frère et affiche un arbre à parir d'un noeud.  
- * @author VINCENT MICHEL RENIER 
+ * la création de fils et frère et affiche un arbre à partir d'un noeud.
+ * @author VINCENT MICHEL RENIER
  * @version 1.0
  */
 
 /**
  * @brief Créer un noeud
- * 
- * @return \b Noeud* retourne notre noeud 
+ *
+ * @return \b Noeud* retourne notre noeud
  */
 Noeud* Creer_Noeud(){
     Noeud* nouveau= (Noeud*)malloc(sizeof(Noeud));
@@ -23,14 +23,14 @@ Noeud* Creer_Noeud(){
     nouveau->frere=NULL;
 
     return nouveau;
-    
+
 }
 
 /**
  * @brief créer un fils à un noeud donné
- * 
+ *
  * @param pere: le père de notre futur noeud
- * 
+ *
  * @return \b Noeud* retourne le fils
  */
 Noeud *Creer_fils(Noeud* pere){
@@ -43,9 +43,9 @@ Noeud *Creer_fils(Noeud* pere){
 
 /**
  * @brief créer un frère à un noeud donné
- * 
+ *
  * @param grand_frere: le frère de notre futur noeud
- * 
+ *
  * @return \b Noeud* retourne le frère
  */
 Noeud *Creer_frere(Noeud* grand_frere){
@@ -57,12 +57,12 @@ Noeud *Creer_frere(Noeud* grand_frere){
 }
 
 /**
- * @brief Moddifie les valeurs d'un noeud, lui associe son etiquette, le pointeur vers le string associé et la taille du string 
- * 
- * @param noeud: le noeud à modifier 
- * @param etiquette_noeud: l'etiquette à associer 
- * @param valeur_noeud: le pointeur vers le string à lire 
- * @param taille_valeur: la taille du string 
+ * @brief Modifie les valeurs d'un noeud, lui associe son etiquette, le pointeur vers le string associé et la taille du string
+ *
+ * @param noeud: le noeud à modifier
+ * @param etiquette_noeud: l'etiquette à associer
+ * @param valeur_noeud: le pointeur vers le string à lire
+ * @param taille_valeur: la taille du string
  */
 void Set_noeud(Noeud *noeud, char* etiquette_noeud, char* valeur_noeud, int taille_valeur){
     noeud->etiquette=etiquette_noeud;
@@ -73,8 +73,8 @@ void Set_noeud(Noeud *noeud, char* etiquette_noeud, char* valeur_noeud, int tail
 
 /**
  * @brief Affiche récursivement tout un arbre à partir d'un noeud
- * 
- * @param noeud: le sommet de l'arbre à partir du quel on doit afficher
+ *
+ * @param noeud: le sommet de l'arbre à partir duquel on doit afficher
  */
 void Afficher_noeud(Noeud* noeud){
     for(int i =0;i<noeud->niveau;i++){
@@ -96,9 +96,9 @@ void Afficher_noeud(Noeud* noeud){
 }
 
 /**
- * @brief Supprime récursivement un tout un arbre à partir d'un noeud
- * 
- * @param noeud: le sommet de l'arbre à partir du quel on doit supprimer
+ * @brief Supprime récursivement tout un arbre à partir d'un noeud
+ *
+ * @param noeud: le sommet de l'arbre à partir duquel on doit supprimer
  */
 void Supprimer_arbre(Noeud* noeud){
 
@@ -106,9 +106,8 @@ void Supprimer_arbre(Noeud* noeud){
         Supprimer_arbre(noeud->fils);
     }
     if(noeud->frere!=NULL){
-        
+
         Supprimer_arbre(noeud->frere);
     }
     free(noeud);
 }
-
