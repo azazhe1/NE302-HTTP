@@ -16,7 +16,7 @@ int main(int argc, char **argv){
     //printf("test : %c\n",0x80);
     fclose(fp);
     strcpy(message,"");
-    char *expect = "10.0.0.0";
+    char *expect = "vA1.-";
     Noeud * noeud =Creer_Noeud();
     strcat(message,expect);
     
@@ -35,7 +35,7 @@ int main(int argc, char **argv){
     }
     
     */
-    if(Test_ipv4address(expect,noeud)){
+    if(Test_IPvFutur(expect,noeud)){
         Afficher_noeud(noeud);
     }else{
         printf("pas bon\n");
@@ -355,7 +355,7 @@ int Test_quoted_pair(char *message,Noeud *noeud){
 }
 
 /**
- * @brief qdtext = HTAB / SP / ! / %x23-5B / %x5D-7E / obs-text
+ * @brief qdtext = HTAB / SP / "!"" / %x23-5B / %x5D-7E / obs-text
  * 
  * @param message 
  * @param noeud 
@@ -369,7 +369,7 @@ int Test_qdtext(char *message,Noeud *noeud){
         noeud->taille = 1;
         return 1;
     }
-    if( ((*message>=0x23)&&(*message<=0x5B)) || ((*message>=0x5D)&&(*message<=0x7E)) ){
+    if( ((*message>=0x23)&&(*message<=0x5B)) || ((*message>=0x5D)&&(*message<=0x7E)) || (*message=='!') ){
         Set_noeud(fils,"__icar",message,1);
         noeud->taille = 1;
         return 1;
@@ -527,6 +527,363 @@ int Test_ipv4address(char *message,Noeud *noeud){
         return 0;
     }
     taille+=fils->taille;
+    noeud->taille = taille;
+    return 1;
+}
+
+/**
+ * @brief HEXDIG = DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_hexdig(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    if(Test_digit(message,fils)){
+        Set_noeud(noeud,"hexdig",message,1);
+        return 1;
+    }else if((*message>=0x41)&&(*message<=0x46)){
+        Set_noeud(fils,"__icar",message,1);
+        Set_noeud(noeud,"hexdig",message,1);
+        return 1;
+    }
+    Supprimer_arbre(fils);
+    noeud->fils = NULL;
+    return 0;
+}
+
+/**
+ * @brief h16 = 1*4HEXDIG
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_h16(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    Noeud *frere=fils;
+    int fin =1;
+    int taille = -1;
+    Set_noeud(noeud,"h16",message,0);
+    while(fin){
+        for(int i=0;i<4;i++){
+            if(!Test_hexdig(message,frere)){
+                fin = 0;
+                break;
+            }
+            fils = frere;
+            message++;
+            frere = Creer_frere(frere);
+        }
+        taille++;
+    }
+    if(taille <1){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    Supprimer_arbre(frere);
+    fils->frere = NULL;
+    noeud->taille = 4*taille;
+
+    return 1;
+}
+
+/**
+ * @brief ls32 = ( h16 ":" h16 ) / ipv4address
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_ls32(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    int taille = 0;
+    Set_noeud(noeud,"ls32",message,0);
+    if(Test_h16(message,fils)){
+        message+=fils->taille;
+        taille+=fils->taille;
+        if(*message != ':'){
+            Supprimer_arbre(noeud->fils);
+            noeud->fils = NULL;
+            return 0;
+        }
+        taille++;
+        fils = Creer_frere(fils);
+        Set_noeud(fils,"__icar",message,1);
+        message++;
+        fils = Creer_frere(fils);
+        if(Test_h16(message,fils)){
+            noeud->taille = taille + fils->taille;
+            return 1;
+        }
+    }
+    Supprimer_arbre(noeud->fils);
+    fils = Creer_fils(noeud);
+    if(Test_ipv4address(message,fils)){
+        noeud->taille = fils->taille;
+        return 1;
+    }
+    Supprimer_arbre(fils);
+    noeud->fils = NULL;
+    return 0;
+}
+
+/**
+ * @brief token = 1*tchar
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_token(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    Noeud *frere = fils;
+    int taille = 0;
+
+    Set_noeud(noeud,"token",message,0);
+    while(Test_tchar(message,frere)){
+        taille+=fils->taille;
+        message+=fils->taille;
+        fils = frere;
+        frere = Creer_frere(frere);
+    }
+    Supprimer_arbre(frere);
+    fils->frere = NULL;
+    if(taille < 1){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    noeud->taille = taille;
+    return 1;
+}
+
+/**
+ * @brief cookie-name = token
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_cookie_name(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    if(Test_token(message,fils)){
+        Set_noeud(noeud,"cookie-name",message,fils->taille);
+        return 1;
+    }
+    Supprimer_arbre(fils);
+    noeud->fils = NULL;
+    return 0;
+}
+
+/**
+ * @brief cookie-value = ( DQUOTE *cookie-octet DQUOTE ) / *cookie-octet
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_cookie_value(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    Noeud *frere = fils;
+    int taille = 0;
+    Set_noeud(noeud,"cookie-value",message,0);
+    if(Test_dquote(message,fils)){
+        taille++;
+        message++;
+        frere = Creer_frere(fils);
+        while(Test_cookie_octet(message,frere)){
+            taille+=fils->taille;
+            message+=fils->taille;
+            fils = frere;
+            frere = Creer_frere(frere);
+        }
+        if(!Test_dquote(message,frere)){
+            Supprimer_arbre(noeud->fils);
+            noeud->fils = NULL;
+            return 0;
+        }
+        taille++;
+        noeud->taille = taille;
+        return 1;
+    }
+    while(Test_cookie_octet(message,frere)){
+        taille+=fils->taille;
+        message+=fils->taille;
+        fils = frere;
+        frere = Creer_frere(frere);
+    }
+    if(taille < 1){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    Supprimer_arbre(frere);
+    fils->frere = NULL;
+    noeud->taille = taille;
+    return 1;
+}
+
+/**
+ * @brief unreserved = ALPHA / DIGIT / "-" / "." / "_" / "~"
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+int Test_unreserved(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    if(Test_Alpha(message,fils)){
+        Set_noeud(noeud,"unreserved",message,1);
+        return 1;
+    }else if (Test_digit(message,fils)){
+        Set_noeud(noeud,"unreserved",message,1);
+        return 1;
+    }else if((*message == '-') || (*message == '.') || (*message == '_') || (*message == '~')){
+        Set_noeud(noeud,"unreserved",message,1);
+        Set_noeud(fils,"__icar",message,1);
+        return 1;
+    }
+    Supprimer_arbre(fils);
+    noeud->fils = NULL;
+    return 0;
+}
+
+/**
+ * @brief IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+ * 
+ * @param message 
+ * @param noeud 
+ * 
+ * @return int 
+ */
+int Test_IPvFutur(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    Noeud *frere;
+    int taille = 0;
+    int fin = 1;
+    int taile_2=0;
+    Set_noeud(noeud,"IPvFutur",message,0);
+    if(*message != 'v'){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    Set_noeud(fils,"__icar",message,1);
+    taille++;
+    message++;
+    fils = Creer_frere(fils);
+    frere = fils;
+    while(Test_hexdig(message,frere)){
+        taille++;
+        message++;
+        fils = frere;
+        frere = Creer_frere(frere);
+    }
+    if(taille < 1){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    if(*message != '.'){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    Set_noeud(fils,"__icar",message,1);
+    taille++;
+    message++;
+    fils = Creer_frere(fils);
+    frere = fils;
+    while(fin){
+        if(Test_unreserved(message,frere)){
+            taille++;
+            taile_2++;
+            message+=fils->taille;
+            fils = frere;
+            frere = Creer_frere(frere);
+        }else if(Test_sub_delims(message,frere)){
+            taille+=fils->taille;
+            taile_2++;
+            message+=fils->taille;
+            fils = frere;
+            frere = Creer_frere(frere);
+        }else if(*message == ':'){
+            Set_noeud(fils,"__icar",message,1);
+            taille++;
+            taile_2++;
+            message++;
+            fils = Creer_frere(fils);
+            frere = fils;
+        }else{
+            fin = 0;
+        }
+    }
+    Supprimer_arbre(frere);
+    fils->frere = NULL;
+    if(taile_2 < 1){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    noeud->taille = taille;
+    return 1;
+}
+
+
+/**
+ * @brief quoted-string = DQUOTE *( qdtext / quoted-pair ) DQUOTE
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
+//[PAS FINI]
+int Test_quoted_string(char *message,Noeud *noeud){
+    Noeud *fils = Creer_fils(noeud);
+    Noeud *frere = fils;
+    int taille = 0;
+    int fin = 1;
+    Set_noeud(noeud,"quoted-string",message,0);
+    if(!Test_dquote(message,fils)){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    taille++;
+    message++;
+    fils = Creer_frere(fils);
+    while(fin){
+        if(Test_qdtext(message,frere)){
+            taille+=fils->taille;
+            message+=fils->taille;
+            fils = frere;
+            frere = Creer_frere(frere);
+        }else if(Test_quoted_pair(message,frere)){
+            taille+=fils->taille;
+            message+=fils->taille;
+            fils = frere;
+            frere = Creer_frere(frere);
+        }else{
+            fin = 0;
+        }
+    }
+    if(!Test_dquote(message,frere)){
+        Supprimer_arbre(noeud->fils);
+        noeud->fils = NULL;
+        return 0;
+    }
+    taille++;
     noeud->taille = taille;
     return 1;
 }
