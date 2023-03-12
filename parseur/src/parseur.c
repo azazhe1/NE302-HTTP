@@ -458,6 +458,14 @@ int Test_dec_octet(char *message,Noeud *noeud){
     return 0;
 }
 
+/**
+ * @brief ipv4address = dec-octet "." dec-octet "." dec-octet "." dec-octet
+ * 
+ * @param message 
+ * @param noeud
+ * 
+ * @return int 
+ */
 int Test_ipv4address(char *message,Noeud *noeud){
     Noeud *fils = Creer_fils(noeud);
     int taille = 0;
